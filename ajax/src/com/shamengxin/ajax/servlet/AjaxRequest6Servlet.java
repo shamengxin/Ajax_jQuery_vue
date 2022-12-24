@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/ajaxrequest6")
-public class AjaxRequest6Servelt extends HttpServlet {
+public class AjaxRequest6Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -22,11 +22,11 @@ public class AjaxRequest6Servelt extends HttpServlet {
         <students>
             <student>
                 <name>zhangsan</name>
-                <age>20<age>
+                <age>20</age>
             </student>
             <student>
                 <name>lisi</name>
-                <age>22<age>
+                <age>22</age>
             </student>
         </students>
          */
@@ -35,11 +35,11 @@ public class AjaxRequest6Servelt extends HttpServlet {
         xml.append("<students>");
         xml.append("<student>");
         xml.append("<name>zhangsan</name>");
-        xml.append("<age>20<age>");
+        xml.append("<age>20</age>");
         xml.append("</student>");
         xml.append("<student>");
         xml.append("<name>lisi</name>");
-        xml.append("<age>22<age>");
+        xml.append("<age>22</age>");
         xml.append("</student>");
         xml.append("</students>");
 
