@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AjaxStudy/AjaxStudy.iml" filepath="$PROJECT_DIR$/AjaxStudy/AjaxStudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Ajax_jQuery_vue.iml" filepath="$PROJECT_DIR$/.idea/Ajax_jQuery_vue.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ajax/ajax.iml" filepath="$PROJECT_DIR$/ajax/ajax.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fastjson/fastjson.iml" filepath="$PROJECT_DIR$/fastjson/fastjson.iml" />
-      <module fileurl="file://$PROJECT_DIR$/old-request/old-request.iml" filepath="$PROJECT_DIR$/old-request/old-request.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AjaxStudy/a/a.iml" filepath="$PROJECT_DIR$/AjaxStudy/a/a.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AjaxStudy/ajax/ajax.iml" filepath="$PROJECT_DIR$/AjaxStudy/ajax/ajax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AjaxStudy/ajax-autocomplete/ajax-autocomplete.iml" filepath="$PROJECT_DIR$/AjaxStudy/ajax-autocomplete/ajax-autocomplete.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AjaxStudy/b/b.iml" filepath="$PROJECT_DIR$/AjaxStudy/b/b.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AjaxStudy/fastjson/fastjson.iml" filepath="$PROJECT_DIR$/AjaxStudy/fastjson/fastjson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AjaxStudy/httpclient/httpclient.iml" filepath="$PROJECT_DIR$/AjaxStudy/httpclient/httpclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AjaxStudy/old-request/old-request.iml" filepath="$PROJECT_DIR$/AjaxStudy/old-request/old-request.iml" />
     </modules>
   </component>
 </project>
