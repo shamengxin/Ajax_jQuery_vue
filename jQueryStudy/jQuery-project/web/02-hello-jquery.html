@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一个jquery例子</title>
+</head>
+<body>
+<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+	/*
+		$:jquery中的函数名
+		document：是参数
+		$(document)：把js中的document对象变成jQuery可以使用的对象，
+					然后调用ready()的函数。这个ready()是jquery中的函数
+					
+					ready()的执行事件在页面dom对象加载后执行。相当域js中onload事件
+		ready(函数)：表示在页面对象加载后执行这个函数
+	*/
+	/*$(document).ready(function (){
+		alert("使用jquery")
+	})*/
+	
+	/*$(document).ready(myinit())
+	function myinit(){
+		alert("===相当于onload===")
+	}*/
+	
+	//jquery提供了更简单的方式，使用read()
+	//$(参数是一个函数)
+	$(function (){
+		alert("简单的方式使用ready")
+	})
+</script>
+</body>
+</html>

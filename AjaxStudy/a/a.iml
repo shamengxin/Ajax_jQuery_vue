@@ -41,5 +41,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="httpcllient" level="project" />
+    <orderEntry type="library" name="httpclient (2)" level="project" />
   </component>
 </module>

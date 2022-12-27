@@ -10,6 +10,8 @@
       <module fileurl="file://$PROJECT_DIR$/AjaxStudy/b/b.iml" filepath="$PROJECT_DIR$/AjaxStudy/b/b.iml" />
       <module fileurl="file://$PROJECT_DIR$/AjaxStudy/fastjson/fastjson.iml" filepath="$PROJECT_DIR$/AjaxStudy/fastjson/fastjson.iml" />
       <module fileurl="file://$PROJECT_DIR$/AjaxStudy/httpclient/httpclient.iml" filepath="$PROJECT_DIR$/AjaxStudy/httpclient/httpclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jQueryStudy/jQuery-project/jQuery-project.iml" filepath="$PROJECT_DIR$/jQueryStudy/jQuery-project/jQuery-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jQueryStudy/jQueryStudy.iml" filepath="$PROJECT_DIR$/jQueryStudy/jQueryStudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/AjaxStudy/old-request/old-request.iml" filepath="$PROJECT_DIR$/AjaxStudy/old-request/old-request.iml" />
     </modules>
   </component>
