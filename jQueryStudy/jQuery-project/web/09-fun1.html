@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery对象转为dom对象</title>
+	<style type="text/css">
+		div{
+			background:gray;
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+	$(function (){
+		$("#btn1").click(function (){
+			// var txt = $(":text").val();
+			
+			var txt=$(":text:first").val()
+			alert("第一个文本框的value="+txt)
+		})
+		
+		$("#btn2").click(function (){
+			//给所有的文本框赋值，新的value值
+			$(":text").val("三国演义")
+			
+		})
+		
+		$("#btn3").click(function (){
+			//使用text()函数，读取文本内容
+			alert($("div").text())
+		})
+		
+		$("#btn4").click(function (){
+			//使用text()函数，读取文本内容
+			$("div").text("我是div")
+		})
+		
+		$("#btn5").click(function (){
+			//读取src的属性值，使用attr()
+			var txt = $("img").attr("src");
+			alert("图片的地址："+txt)
+		})
+		
+		$("#btn6").click(function (){
+			//设置新的图片
+			$("#img1").attr("src","img/ex2.jpg")
+		})
+	})
+</script>
+
+<input type="text" value="刘备"><br>
+<input type="text" value="关羽"><br>
+<input type="text" value="张飞"><br>
+<br>
+<div>我们学习的是开发语言</div>
+<div>,java语言</div>
+<div>,是面向对象的OCP</div>
+<br>
+<img src="img/ex1.jpg" id="img1">
+<br>
+<button id="btn1">读取第一个文本框的value值</button><br>
+<button id="btn2">给文本框赋予新值</button><br>
+<button id="btn3">读取div的所有文本</button><br>
+<button id="btn4">设置div的文本值</button><br>
+<button id="btn5">读取src属性值</button><br>
+<button id="btn6">设置src属性值，换一个图片</button><br>
+</body>
+</html>

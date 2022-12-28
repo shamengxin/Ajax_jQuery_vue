@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery对象转为dom对象</title>
+	<style type="text/css">
+		div{
+			background:gray;
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+	$(function (){
+		$("#btn1").click(function (){
+			//所有可用的文本框
+			var obj = $(":text:enabled");
+			obj.val("hello")
+		})
+		
+		$("#btn2").click(function (){
+			//选中的复选框
+			var obj=$(":checkbox:checked")
+			for (let i = 0; i <obj.length; i++) {
+				console.log(obj[i].value+",jquery="+$(obj[i]).val())
+			}
+		})
+		
+		$("#btn3").click(function (){
+			//下拉列表框架选中的值
+			// var obj=$("select>option:selected")
+			var obj=$("#lang>option:selected")
+			console.log(obj.val())
+		})
+	})
+
+</script>
+
+<input type="text" value="文本1"><br>
+<input type="text" value="文本2" disabled="true"><br>
+<input type="text" value="文本3"><br>
+<input type="text" value="文本4" disabled><br>
+<br>
+<input type="checkbox" value="游泳">游泳 <br>
+<input type="checkbox" value="建身">建身 <br>
+<input type="checkbox" value="电子游戏">电子游戏 <br>
+<br>
+<select id="lang">
+	<option value="java">java语言</option>
+	<option value="go" selected>go语言</option>
+	<option value="python">python语言</option>
+</select>
+<br>
+<button id="btn1">给所有可用的文本框设置value为hello</button><br>
+<button id="btn2">显示选中的复选框的值</button><br>
+<button id="btn3">显示选中的下拉列表框</button><br>
+</body>
+</html>

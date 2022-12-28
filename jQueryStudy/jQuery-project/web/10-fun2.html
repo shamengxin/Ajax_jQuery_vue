@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery对象转为dom对象</title>
+	<style type="text/css">
+		div{
+			background:gray;
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+	$(function (){
+		$("#btn1").click(function (){
+			$("select").remove()
+		})
+		
+		$("#btn2").click(function (){
+			$("select").empty()
+			
+		})
+		
+		$("#btn3").click(function (){
+			//添加dom对象
+			$("#mydiv").append("<button id='newbtn'>我是新加的按钮</button>")
+			$("#mydiv").append("<table border='1'><tr><td>hello</td></tr></table>")
+		})
+		
+		$("#btn4").click(function (){
+			//dom数组中第一个dom的文本值，包含html标签的内容
+			alert($("span").html())
+		})
+		
+		$("#btn5").click(function (){
+			//设置值，包含html标签的内容
+			$("span").html("我是<b>新的内容</b>")
+		})
+		
+		$("#btn6").click(function (){
+			var num=[10,20,30]
+			for (let i = 0; i < num.length; i++) {
+				doArrayContent(i,num[i])
+			}
+		})
+		
+		$("#btn7").click(function (){
+			var arr=["abc","hello","jquery"]
+			$.each(arr,function (index,element){
+				console.log("循环变量i="+index+",数组成员="+element)
+			})
+		})
+	})
+	
+	//定义一个函数，处理数组中的每个内容
+	function doArrayContent(index,element){
+		console.log("inedx就是数组的循环变量="+index+",element是数组成员="+element)
+	}
+</script>
+
+<select>
+	<option value="老虎">老虎</option>
+	<option value="狮子">狮子</option>
+	<option value="豹子">豹子</option>
+</select>
+<br>
+<select>
+	<option value="亚洲">亚洲</option>
+	<option value="欧洲">欧洲</option>
+	<option value="大洋洲">大洋洲</option>
+</select>
+<br>
+<div id="mydiv" style="background: red">
+	我是一个div
+</div>
+<br>
+<span>我是<b>mysql</b>数据库</span>
+<br>
+<span>学习sql语言</span>
+<br>
+<button id="btn1">使用remove删除dom对象</button><br>
+<button id="btn2">使用empty删除子dom对象</button><br>
+<button id="btn3">使用append追加dom对象</button><br>
+<button id="btn4">获取dom数组中第一个dom对象的文本（innerHTML）</button><br>
+<button id="btn5">设置文本值（innerHTML）</button><br>
+<button id="btn6">自己写循环数组</button><br>
+<button id="btn7">each循环普通数组</button><br>
+</body>
+</html>

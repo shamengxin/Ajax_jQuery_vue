@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery对象转为dom对象</title>
+	<style type="text/css">
+		div{
+			background:gray;
+			width: 200px;
+			height: 100px;
+		}
+		.two{
+			font-size: 20px;
+			color: aqua;
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+	function fun1(){
+		//使用表单选择器，获取dom对象
+		var obj = $(":text");
+		alert(obj.val())
+	}
+	
+	function fun2(){
+		//$(":radio")
+		var obj=$(":radio");
+		for (let i = 0; i < obj.length; i++) {
+			var dom=obj[i];//dom是dom对象
+			alert("dom的属性="+dom.value+",使用jquery的函数="+$(dom).val())
+		}
+	}
+	
+	function fun3(){
+		var obj=$(":checkbox");
+		for (let i = 0; i < obj.length; i++) {
+			alert($(obj[i]).val())
+		}
+	}
+	
+</script>
+
+<p>文本框</p>
+<input type="text" value="我是type=text"><br>
+<p>radio</p>
+<input type="radio" value="man">男<br>
+<input type="radio" value="woman">女<br>
+<br>
+<p>checkbox</p>
+<input type="checkbox" value="bike">骑行 <br>
+<input type="checkbox" value="football">足球 <br>
+<input type="checkbox" value="music">音乐 <br>
+<br>
+<br>
+<input type="button" value="读取文本框的value值" onclick="fun1()"><br>
+<input type="button" value="读取radio的value值" onclick="fun2()"><br>
+<input type="button" value="读取checkbox的value值" onclick="fun3()"><br>
+
+</body>
+</html>

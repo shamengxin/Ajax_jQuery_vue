@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery对象转为dom对象</title>
+	<style type="text/css">
+		div{
+			background:gray;
+			width: 200px;
+			height: 100px;
+		}
+		.two{
+			font-size: 20px;
+			color: aqua;
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+	function fun1(){
+		//id选择器
+		var obj = $("#one");
+		obj.css("background","red");
+	}
+	
+	function fun2(){
+		//class选择器（样式选择器）
+		var obj = $(".two");
+		//jquery对象是数组，在使用jquery函数时，把数组每个成员都应用css函数
+		obj.css("background","blue");
+	}
+	
+	function fun3(){
+		//标签名称选择器
+		var obj = $("div");
+		obj.css("background","green");
+	}
+	
+	function fun4(){
+		//所有选择器
+		var obj=$("*");
+		obj.css("background","orange");
+	}
+	
+	function fun5(){
+		//组合选择器
+		var obj=$("#one,span,.two")
+		obj.css("background","yellow");
+	}
+</script>
+
+<div id="one">我是id=one的div</div>
+<br>
+<div class="two">我是class=two的div</div>
+<br>
+<div class="two">没有id，class</div>
+<br>
+<span>我是span</span>
+<br>
+<br>
+<input type="button" value="获取id=one的dom对象" onclick="fun1()"><br>
+<input type="button" value="获取class=two的dom对象" onclick="fun2()"><br>
+<input type="button" value="获取标签时div的dom对象" onclick="fun3()"><br>
+<input type="button" value="获取所有的dom对象" onclick="fun4()"><br>
+<input type="button" value="组合选择dom对象" onclick="fun5()"><br>
+</body>
+</html>
