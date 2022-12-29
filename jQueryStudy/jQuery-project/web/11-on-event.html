@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>on绑定事件</title>
+</head>
+<body>
+<script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+	$(function (){
+		$("#btn").on("click",function (){
+			// alert("button click")
+			$("div").append("<button id='newbtn'>我是新增加的按钮</button>")
+			//给dom对象button，绑定事件
+			$("#newbtn").on("click",function (){
+				alert("我是新的按钮的单击事件")
+			})
+		})
+		
+	})
+</script>
+
+<div id="mydiv" style="background: aquamarine">
+	我是mydiv
+</div>
+<br>
+<input type="button" id="btn" value="新建dom对象，绑定事件">
+</body>
+</html>

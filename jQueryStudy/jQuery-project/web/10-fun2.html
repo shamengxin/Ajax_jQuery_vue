@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>jquery对象转为dom对象</title>
+	<title>第二组函数</title>
 	<style type="text/css">
 		div{
 			background:gray;
@@ -52,6 +52,30 @@
 				console.log("循环变量i="+index+",数组成员="+element)
 			})
 		})
+		
+		$("#btn8").click(function (){
+			var json={"name":"李四","age":20,"sex":"男"}
+			//key循环json数组
+			$.each(json,function (i,n){
+				//i是key，n:value
+				console.log("i是json的key="+i+",n是json的value="+n)
+			})
+		})
+		
+		$("#btn9").click(function (){
+			var domArray=$(":text")
+			$.each(domArray,function (i,n){
+				//i 循环变量，n dom对象
+				console.log("i是循环变量="+i+",n是dom对象="+n.value)
+			})
+		})
+		
+		$("#btn10").click(function (){
+			// var obj=$(":text")
+			$(":text").each(function (i,n){
+				console.log("i是循环变量="+i+",n是dom对象="+$(n).val())
+			})
+		})
 	})
 	
 	//定义一个函数，处理数组中的每个内容
@@ -80,6 +104,10 @@
 <br>
 <span>学习sql语言</span>
 <br>
+<input type="text" value="刘备"><br>
+<input type="text" value="关羽"><br>
+<input type="text" value="张飞"><br>
+<br>
 <button id="btn1">使用remove删除dom对象</button><br>
 <button id="btn2">使用empty删除子dom对象</button><br>
 <button id="btn3">使用append追加dom对象</button><br>
@@ -87,5 +115,8 @@
 <button id="btn5">设置文本值（innerHTML）</button><br>
 <button id="btn6">自己写循环数组</button><br>
 <button id="btn7">each循环普通数组</button><br>
+<button id="btn8">each循环json对象</button><br>
+<button id="btn9">each循环dom数组对象</button><br>
+<button id="btn10">each第二种语法格式</button><br>
 </body>
 </html>
