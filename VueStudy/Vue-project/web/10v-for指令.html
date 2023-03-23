@@ -1,0 +1,31 @@
+<!--
+	v-for指令：根据对数据（数组）进行循环
+	语法：(item,index) in 数据
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>v-for指令.html</title>
+</head>
+<body>
+<div id="app">
+	<ul>
+		<li v-for="(item,index) in arr">
+			{{index}}test{{item}}
+		</li>
+	</ul>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+		el:"#app",
+		data:{
+			arr:["h1","h2","h3"]
+		}
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!--
+	v-text指令：设置标签的内容
+	注：但是默认会替换标签中本来拥有的内容
+	使用差值表达式可以替换指定的内容{{}}
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>v-test指令.html</title>
+</head>
+<body>
+<div id="app">
+	<h2 v-text="message+'333'">EEEEE</h2>
+	<h2 v-text="info+'3333'">EEEE</h2>
+	<h2>{{message+'3333'}}EEEEE</h2>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+		el:"#app",
+		data:{
+			message:"hello world!!!2",
+			info:"vueTest"
+		}
+	});
+</script>
+
+</body>
+</html>

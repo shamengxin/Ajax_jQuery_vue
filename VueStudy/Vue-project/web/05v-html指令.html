@@ -1,0 +1,29 @@
+<!--
+	v-html指令：设置元素的innerHTML
+	如内容中有html结构的标签，会被解析为标签
+	v-text：是解析成文本
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>v-html指令.html</title>
+</head>
+<body>
+<div id="app">
+	<p v-html="content"></p>
+	<p v-text="content"></p>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+		el:"#app",
+		data:{
+			content:"<a href='https://www.baidu.com'>百度</a>"
+		}
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!--
+	vue中数据保存在data中
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>data:数据对象</title>
+</head>
+<body>
+<div id="app">
+	{{ message }}
+	<h2>{{school.name}}{{school.mobile}}</h2>
+	<ul>
+		<li>{{school.campus[0]}}</li>
+		<li>{{school.campus[2]}}</li>
+	</ul>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+		el:"div",
+		data:{
+			message:"hello world!!!",
+			school:{
+				name:"xx大学",
+				mobile:"2222",
+				campus:["武汉","北京","天津"]
+			}
+		}
+	});
+</script>
+
+</body>
+</html>

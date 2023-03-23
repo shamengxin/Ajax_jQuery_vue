@@ -1,0 +1,35 @@
+<!--
+	v-if指令：根据表达式的状态切换元素的显示状态
+	注：其与v-show指令的区别式v-show是通过display属性来显示
+		v-if指令是直接将元素从dom树上移除（将元素删除）
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>v-if指令.html</title>
+</head>
+<body>
+<div id="app">
+	<input type="button" vlaue="切换显示状态" @click="changeShow">
+	<p v-if="isShow">傻萌新</p>
+	<p v-show="isShow">傻萌新 - v-show修饰</p>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+		el:"#app",
+		data:{
+			isShow:false
+		},
+		methods:{
+			changeShow:function (){
+				this.isShow=!this.isShow;
+			}
+		}
+	});
+</script>
+
+</body>
+</html>

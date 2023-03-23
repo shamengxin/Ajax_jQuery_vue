@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AjaxStudy/AjaxStudy.iml" filepath="$PROJECT_DIR$/AjaxStudy/AjaxStudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Ajax_jQuery_vue.iml" filepath="$PROJECT_DIR$/.idea/Ajax_jQuery_vue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VueStudy/Vue-project/Vue-project.iml" filepath="$PROJECT_DIR$/VueStudy/Vue-project/Vue-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VueStudy/VueStudy.iml" filepath="$PROJECT_DIR$/VueStudy/VueStudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/AjaxStudy/a/a.iml" filepath="$PROJECT_DIR$/AjaxStudy/a/a.iml" />
       <module fileurl="file://$PROJECT_DIR$/AjaxStudy/ajax/ajax.iml" filepath="$PROJECT_DIR$/AjaxStudy/ajax/ajax.iml" />
       <module fileurl="file://$PROJECT_DIR$/AjaxStudy/ajax-autocomplete/ajax-autocomplete.iml" filepath="$PROJECT_DIR$/AjaxStudy/ajax-autocomplete/ajax-autocomplete.iml" />

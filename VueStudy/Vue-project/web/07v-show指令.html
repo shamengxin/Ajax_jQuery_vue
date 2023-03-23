@@ -1,0 +1,41 @@
+<!--
+	v-show指令：根据真假切换元素的显示状态
+	原理是修改元素的display，实现隐藏
+	注：v-show指令后面的内容最终会被解析为Boolean
+	所以其后面的内容可以为表达式
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>v-show指令.html</title>
+</head>
+<body>
+<div id="app">
+	<input type="button" value="增加年龄" @click="addage">
+	<input type="button" value="切换显示状态" @click="changeShow">
+	<img v-show="isShow" src="./img/five.png">
+	<img v-show="age>=18" src="img/five.png">
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+		el:"#app",
+		data:{
+			isShow:false,
+			age:17
+		},
+		methods:{
+			changeShow:function (){
+				this.isShow=!this.isShow;
+			},
+			addage:function (){
+				this.age++;
+			}
+		}
+	});
+</script>
+
+</body>
+</html>

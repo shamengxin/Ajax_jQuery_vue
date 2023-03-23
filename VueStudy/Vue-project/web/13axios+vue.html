@@ -1,0 +1,38 @@
+<!--
+	注：axios回调函数中的this已经改变，无法访问到data数据，所以需要先将数据保存起来
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>axios+vue.html</title>
+</head>
+<body>
+<div id="app">
+	<input type="button" value="获取笑话" @click="getJoke">
+	<p>{{joke}}</p>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/axios.min.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+		el:"#app",
+		data:{
+			joke:"很好笑的笑话"
+		},
+		methods:{
+			getJoke:function (){
+				var that = this
+				axios.get("https://autumnfish.cn/api/joke")
+						.then(function (resp){
+							console.log(resp)
+							that.joke=resp.data;
+						},function (err){})
+			}
+		}
+	});
+</script>
+
+</body>
+</html>

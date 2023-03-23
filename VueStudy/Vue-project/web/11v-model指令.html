@@ -1,0 +1,32 @@
+<!--
+v-model指令：将数据和表单元素进行绑定，当数据变化时，表单元素也会同步进行变换
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>v-model指令.html</title>
+</head>
+<body>
+<div id="app">
+	<input type="text" v-model="message" @keyup.enter="getM">
+	<h2>{{message}}</h2>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+		el:"#app",
+		data:{
+			message:"hello world!!!"
+		},
+		methods:{
+			getM:function (){
+				alert(this.message);
+			}
+		}
+	});
+</script>
+
+</body>
+</html>

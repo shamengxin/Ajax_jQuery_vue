@@ -1,0 +1,36 @@
+<!--
+范围：
+	vue会管理el选项选中的元素及其内部元素
+选择器：
+	类选择器，id选择器，标签选择器
+是否可以设置其他dom元素：
+	可以设置其他dom标签，不能使用在html和body等元素上
+
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>el挂载点</title>
+</head>
+<body>
+{{message}}
+<div id="app" class="app">
+	{{ message }}
+	<span>{{message}}</span>
+</div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+		// el:"#app",
+		// el:".app",
+		el:"div",
+		data:{
+			message:"hello world!!!"
+		}
+	});
+</script>
+
+</body>
+</html>
