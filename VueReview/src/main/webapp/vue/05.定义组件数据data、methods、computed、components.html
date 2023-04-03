@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>vue回顾</title>
+</head>
+<body>
+	<div id="app">
+		<h1>{{msg}}</h1>
+		
+		<!--使用组件-->
+		<login></login>
+		<login></login>
+		<login></login>
+		<login></login>
+	</div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+	
+	/*登录组件对象*/
+	const login={
+		template:`<div><h2>{{counter}}</h2></div>`,
+		data(){//组件中定义数据
+			return {
+				counter:0
+			};
+		},
+		methods:{//组件中定义方法
+			test(){
+				this.counter++;
+			}
+		},
+		computed: {//组件中定义计算属性
+			counterSqrt(){
+				return this.counter*this.counter;
+			}
+		},
+		//后面也可以写vue生命周期中所提供的方法
+		beforeCreate(){
+		
+		},
+		created(){
+		
+		},
+		//组件中还可以定义自己的组件
+		components:{
+		
+		}
+		//........
+	}
+	
+	const app = new Vue({
+		el:"#app",
+		data:{
+			msg:"组件"
+		},
+		methods:{},
+		computed:{},
+		components:{//注册局部组件
+			login,
+		}
+	})
+</script>

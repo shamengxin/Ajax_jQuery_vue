@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>vue回顾</title>
+</head>
+<body>
+	<div id="app">
+		<h1>{{msg}}</h1>
+	</div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+	var instance = axios.create({
+		baseURL:"http://localhost:8080"
+	})
+	
+	instance.get("/demo").then(function (res){
+	
+	}).catch(function (err){
+	
+	})
+	
+	axios.interceptors.request.use(function (config){
+		//在发送请求之前做些什么
+		return config;
+	}),function (error){
+		//对请求错误做些什么
+		return Promise.reject(error);
+	}
+</script>

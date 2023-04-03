@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>vue补充</title>
+</head>
+<body>
+
+<div id="app">
+	<h1>{{msg}}</h1>
+	
+	<button @click="login">用户登录</button>
+	<button @click="register">用户注册</button>
+	
+	<!--展示路由组件标签-->
+	<router-view/>
+</div>
+
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+	
+	//登录组件
+	const login = {
+		template: `<div><h3>用户登录</h3></div>`
+	};
+	//注册组件
+	const register = {
+		template: `<div><h3>用户注册</h3></div>`
+	};
+	
+	//创建路由规则对象
+	const router = new VueRouter({
+		routes: [
+				//name:这个属性代表路由对象名称，用来给路由对象一个唯一名称标识
+			{path: '/login', component: login,name:'Login'},
+			{path: '/register', component: register,name:'Register'},
+		]
+	});
+	
+	//在Vuerouter 中多次切换相同的路由出现错误————官方解决
+	const originalPush = VueRouter.prototype.push;
+	VueRouter.prototype.push=function push(location){
+		return originalPush.call(this,location).catch(err=>err)
+	};
+	
+	const app = new Vue({
+		el: "#app",
+		data: {
+			msg: "在js代码中切换路由",
+		},
+		methods: {
+			login(){
+				//发送axios请求完成的登录，响应回来之后切换路由到主页
+				//this.$route object 当前路由对象   this.$router vueRouter  代表路由管理器对象
+				// this.$router.push('/login')
+				// this.$router.push({path:'/login'})
+				//在Vuerouter 中多次切换相同的路由出现错误  1.每次切换之前手动判断   2.加入官方一段配置解决错误问题
+				// if(this.$route.name!='Login'){
+				// 	this.$router.push({name:'Login'});//使用名称切换
+				// }
+				this.$router.push({name:'Login'});//使用名称切换
+			},
+			register(){
+				// if(this.$route.name!='Register'){
+				// 	this.$router.push({name:'Register'});
+				// }
+				this.$router.push({name:'Register'});
+			}
+			
+		},
+		router,
+	})
+</script>

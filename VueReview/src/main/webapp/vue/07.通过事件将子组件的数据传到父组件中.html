@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>vue回顾</title>
+</head>
+<body>
+<div id="app">
+	<h1>{{msg}}---{{count}}</h1>
+	
+	<!--
+		再使用组件时向组件传递事件，直接在对应组标签上定义传递事件即可@key="value" @传递事件名=“父组件中传递事件名”
+	-->
+	<login name="傻萌新" :msg="msg" @aa="testParent"></login>
+</div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+	
+	const login = {
+		template: `<div><h3>用户登录</h3><button @click="testChild">hello</button></div>`,
+		data() {
+			return {
+				count: 20
+			}
+		},
+		methods: {
+			testChild() {
+				alert("我是子组件中定义的事件");
+				this.$emit('aa',this.count);//使用这个方法调用父组件传递过来的事件 参数1：调用的事件名
+			}
+		}
+	};
+	const app = new Vue({
+		el: "#app",
+		data: {
+			msg: "组件之间数据传递",
+			count: 0
+		},
+		methods: {
+			testParent(count) {
+				alert("我是父组件上的事件");
+				this.count = count;
+			}
+		},
+		components: {//注册局部组件
+			login,
+		}
+	})
+</script>

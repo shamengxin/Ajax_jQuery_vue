@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>vue补充</title>
+</head>
+<body>
+
+<div id="app">
+	<h1>{{msg}}</h1>
+	
+	<!--
+		地址栏传递参数分为两种方式：
+			1.queryString ？       this.$route.query.key
+			2.restful 路径传递参数       this.$route.params.key
+	-->
+	<a href="#/login?name=shamengxin&password=123">用户登录</a>
+	<a href="#/register/12/aaaa">用户注册</a>
+	
+	<br>
+	<!--query-->
+	<router-link to="/login?name=shamengxin&password=123">用户登录</router-link>
+	<router-link :to="{path:'/login',query:{name:'shamengxin',password:1234}}">用户登录</router-link>
+	<router-link :to="{name:'Login',query:{name:'shamengxin',password:1234}}">用户登录</router-link>
+	
+	<br>
+	<!--restful-->
+	<router-link :to="{path:'/register/22/213434'}">用户注册</router-link>
+	<router-link :to="{name:'Register',params:{id:222,name:'shamengxin'}}">用户注册</router-link>
+	
+	<!--展示路由组件标签-->
+	<router-view/>
+</div>
+
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+	
+	//登录组件
+	const login = {
+		template: `<div><h3>用户登录</h3></div>`,
+		created(){
+			console.log(this.$route.query.name)
+			console.log(this.$route.query.password)
+		}
+	};
+	//注册组件
+	const register = {
+		template: `<div><h3>用户注册</h3></div>`,
+		created() {
+			console.log(this.$route.params.id)
+			console.log(this.$route.params.name)
+		}
+	};
+	
+	//创建路由规则对象
+	const router = new VueRouter({
+		routes: [
+				//name:这个属性代表路由对象名称，用来给路由对象一个唯一名称标识
+			{path: '/login', component: login,name:'Login'},
+			{path: '/register/:id/:name', component: register,name:'Register'},
+		]
+	});
+	
+	//在Vuerouter 中多次切换相同的路由出现错误————官方解决
+	const originalPush = VueRouter.prototype.push;
+	VueRouter.prototype.push=function push(location){
+		return originalPush.call(this,location).catch(err=>err)
+	};
+	
+	const app = new Vue({
+		el: "#app",
+		data: {
+			msg: "在js代码中切换路由",
+		},
+		methods: {
+		},
+		router,
+	})
+</script>

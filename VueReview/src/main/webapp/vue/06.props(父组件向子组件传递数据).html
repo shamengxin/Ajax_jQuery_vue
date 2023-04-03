@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>vue回顾</title>
+</head>
+<body>
+	<div id="app">
+		<h1>{{msg}}</h1>
+		
+		<!--使用组件
+			props 传递静态数据：就是一个写死的数据   动态数据：数据可变的
+			
+			父组件向子组件传递数据：
+				a.传递静态数据   在组件使用标签上 声明静态数据 key=value   在组件定义内部使用props进行数据接收才可以
+		-->
+		
+		<login title="我是标题"></login>
+		
+	</div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+	
+	const login = {
+		template:`<div><h3>用户登录</h3>{{title}}</div>`,
+		data(){
+			return{
+			
+			};
+		},
+		props:['title']//用来接收父组件给当前组件传递数据 注意:使用props机制接收的数据就相当于自己组件中data中声明了这样一个数据
+	};
+	
+	const app = new Vue({
+		el:"#app",
+		data:{
+			msg:"组件之间数据传递"
+		},
+		components:{//注册局部组件
+			login,
+		}
+	})
+</script>

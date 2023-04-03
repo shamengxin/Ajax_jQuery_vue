@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>vue补充</title>
+</head>
+<body>
+
+<div id="app">
+	<h1>{{msg}}</h1>
+	
+	<router-link :to="{name:'users'}">用户列表</router-link>
+	<!--展示路由组件-->
+	<router-view></router-view>
+</div>
+
+</body>
+</html>
+<template id="users">
+	<div>
+		<h3>用户列表</h3>
+		<a href="#/users/useradd">添加用户信息</a>
+		<table border="1">
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>age</th>
+				<th>salary</th>
+				<th>操作</th>
+			</tr>
+			<tr v-for="user,index in users">
+				<td>{{user.id}}</td>
+				<td>{{user.name}}</td>
+				<td>{{user.age}}</td>
+				<td>{{user.salary}}</td>
+				<td><a href="">删除</a><router-link :to="{name:'useredit',query:{id:user.id}}">修改</router-link> </td>
+			</tr>
+		</table>
+		<router-view></router-view>
+	</div>
+</template>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+	//定义用户列表页面
+	const users={
+		template:"#users",
+		data(){
+			return{
+				users:{}
+			}
+		},
+		created(){
+			//发送axios请求查询所有
+			this.users=[{id:1,name:'shamengxin',age:23,salary:22300}]
+		}
+	};
+	
+	const userAdd={
+			template: `
+						<div>
+							<form action="">
+								姓名：<input type="text"><br>
+								年龄：<input type="text"><br>
+								工资：<input type="text"><br>
+									<button type="submit">提交</button>
+							</form>
+						</div>
+						`
+	};
+	const userEdit={
+		template: `
+						<div>
+							<form action="">
+								id： <input type="text" v-model="user.id"><br>
+								姓名：<input type="text" v-model="user.name"><br>
+								年龄：<input type="text" v-model="user.age"><br>
+								工资：<input type="text" v-model="user.salary"><br>
+									<button type="submit" @click="editUser">提交</button>
+							</form>
+						</div>
+						`,
+		data() {
+			return {
+				user:{}
+			};
+		},
+		methods:{
+			editUser(){
+				//fa送axios请求更新用户
+				// axios.post("url",this.user).then(res=>{
+				// 	this.user={};
+				// 	this.$router.push({name:'users'})
+				// });
+				this.$router.push({name:'users'})
+			}
+		},
+		created() {
+			let id = this.$route.query.id;
+			console.log("update:",id);
+			//发送axios请求
+			// axios.get("url?id="+id);
+			this.user = {id:id,name:'shamengxin',age:'23',salary:22300};
+		}
+	};
+	
+	//定义路由规则对象
+	const router = new VueRouter({
+		routes:[
+			{
+				path:'/users',name:'users',component:users,
+				children:[//注意：嵌套路由中子路由不能使用/开头
+					{path:'useradd',name:'useradd',component: userAdd},
+					{path:'useredit',name:'useredit',component: userEdit}
+				]
+			},
+			
+		]
+	});
+	
+	const app = new Vue({
+		el: "#app",
+		data: {
+			msg: "嵌套路由",
+		},
+		methods: {
+		},
+		router,
+	})
+</script>

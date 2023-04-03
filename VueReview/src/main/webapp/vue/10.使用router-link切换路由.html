@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>vue补充</title>
+</head>
+<body>
+
+<div id="app">
+	<h1>{{msg}}</h1>
+	
+	<!--根据路径切换路由：根据请求路径切换显示不同组件-->
+	<!--切换路由的链接-->
+	<a href="#/login">用户登录</a>
+	<a href="#/register">用户注册</a>
+	<br>
+	<!--切换路由标签 router-link 标签中必须加入 to属性 to="路由路径"-->
+	<router-link to="/login">用户登录</router-link>
+	<router-link to="/register">用户注册</router-link>
+	<br>
+	<!--切换路由标签-->
+	<router-link :to="{path:'/login'}">用户登录</router-link>
+	<router-link :to="{path:'/register'}">用户注册</router-link>
+	<br>
+	<!--名称切换路由：根据路由对象名称切换路由显示不同组件  根据路由名称切换路由只能使用router-link 此方式被推荐，原因是解耦合-->
+	<router-link :to="{name:'Login'}">用户登录</router-link>
+	<router-link :to="{name:'Register'}">用户注册</router-link>
+	
+	<!--展示路由组件标签-->
+	<router-view/>
+</div>
+
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+	
+	//登录组件
+	const login = {
+		template: `<div><h3>用户登录</h3></div>`
+	};
+	//注册组件
+	const register = {
+		template: `<div><h3>用户注册</h3></div>`
+	};
+	
+	//创建路由规则对象
+	const router = new VueRouter({
+		routes: [
+				//name:这个属性代表路由对象名称，用来给路由对象一个唯一名称标识
+			{path: '/login', component: login,name:'Login'},
+			{path: '/register', component: register,name:'Register'},
+		]
+	});
+	
+	const app = new Vue({
+		el: "#app",
+		data: {
+			msg: "使用router-link切换路由",
+		},
+		methods: {},
+		router,
+	})
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>vue回顾</title>
+</head>
+<body>
+	<div id="app">
+		<h1>{{msg}}</h1>
+		
+		编号：<input type="text" v-model="item.id">
+		名称：<input type="text" v-model="item.name">
+		价格：<input type="text" v-model="item.price">
+		数量：<input type="text" v-model="item.count">
+		<button @click="addCart">添加到购物车</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		<table border="1">
+			<tr>
+				<th>编号</th>
+				<th>名称</th>
+				<th>价格</th>
+				<th>购买数量</th>
+				<th>小计</th>
+			</tr>
+			<tr v-for="item,index in items" :key="item.id">
+				<td>{{item.id}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.price}}</td>
+				<td><input type="button" value="+" @click="incrementCount(index)">&nbsp;{{item.count}}&nbsp;<input type="button" value="-" @click="decrementCount(index)"></td>
+				<td>{{(item.price*item.count).toFixed(2)}}</td>
+			</tr>
+		</table>
+		<h3>总价格：{{totalPrice()}}</h3>
+	</div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+	var vue = new Vue({
+		el:"#app",
+		data:{
+			msg:"购物车案例",
+			items:[
+				{id:1,name:"iphone",price:19.9,count:1},
+				{id:2,name:"iphone4",price:20.9,count:1}
+			],
+			item:{}
+		},
+		methods:{
+			incrementCount(index){
+				this.items[index].count++;
+			},
+			decrementCount(index){
+				if (!(this.items[index].count>1)){alert("购买商品不能少于1件！！！");return false;}
+				this.items[index].count--;
+			},
+			totalPrice(){
+				var totalprice=0;
+				for (var i=0;i<this.items.length;i++){
+					totalprice+=this.items[i].count*this.items[i].price;
+				}
+				return totalprice.toFixed(2);
+			},
+			addCart(){
+				if(!this.item.id){alert("请输入编号！");return false;}
+				if(!this.item.name){alert("请输入名称！");return false;}
+				if(!this.item.price){alert("请输入价格！");return false;}
+				if(!this.item.count){alert("请输入数量！");return false;}
+				if(!(this.item.count>0)){alert("请输入正确数量！");return false;}
+				this.items.push(this.item)
+			}
+		}
+	});
+</script>

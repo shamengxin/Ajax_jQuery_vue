@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>vue回顾</title>
+</head>
+<body>
+	<div id="app">
+		<h1>{{msg}}</h1>
+		
+		<!--
+			向子组件传递动态数据 props机制
+				a.组件标签上声明 :key="value" 简而言之就是将这个key和父组件中的data中的数据绑定，然后传给子组件
+				注：1.props数组中是通过key来获取value的值的
+					2.这个是单向流动的父中数据的改变可以影响子组件中的数据，但是子组件中数据的改变不能影响父组件中的数据，否则会报错
+		-->
+		<input type="text" v-model="counter">
+		<login :count="counter"></login>
+	</div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+	
+	const login = {
+		template:`<div><h3>用户登录---{{count}}</h3></div>`,
+		
+		props:['count']
+	};
+	const app = new Vue({
+		el:"#app",
+		data:{
+			msg:"组件之间数据传递",
+			counter:0
+		},
+		components:{//注册局部组件
+			login,
+		}
+	})
+</script>

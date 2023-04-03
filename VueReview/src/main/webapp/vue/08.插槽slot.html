@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>vue回顾</title>
+</head>
+<body>
+<div id="app">
+	<h1>{{msg}}</h1>
+	<login></login>
+	<!--以上是使用普通插槽，就是插槽没有给name属性-->
+	<hr>
+	<login><span >欢迎进入我们的网站</span></login>
+	<hr>
+	<login><span>欢迎进入我们的网站</span></login>
+	<!--以下是使用具名插槽-->
+	<hr>
+	<login><span slot="left">欢迎进入我们的网站</span></login>
+	<hr>
+	<login><span slot="right">欢迎进入我们的网站</span></login>
+</div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+	
+	const login={
+		template:`<div><slot name="left"></slot><h3>用户登录</h3><slot name="right"></slot></div>`
+	}
+	
+	const app = new Vue({
+		el: "#app",
+		data: {
+			msg: "组件插槽slot",
+		},
+		methods: {
+		},
+		components: {//注册局部组件
+			login
+		}
+	})
+</script>
