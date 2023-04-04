@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/VueReview/pom.xml" />
+        <option value="$PROJECT_DIR$/Vue-CLI/pom.xml" />
       </list>
     </option>
   </component>
