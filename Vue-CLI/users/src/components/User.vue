@@ -14,7 +14,7 @@
       <td>{{user.name}}</td>
       <td>{{user.age}}</td>
       <td>{{user.bir}}</td>
-      <td><a href="">删除</a><a href="">修改</a></td>
+      <td><a href="javascript:;" @click="delRow(user.id)">删除</a><a :href="'#/user/edit?id='+user.id">修改</a></td>
     </tr>
   </table>
   <a href="#/user/add">添加</a>
@@ -32,10 +32,21 @@ export default {
   },
   methods:{
     findAll(){
-      this.$http.get("http://rap2api.taobao.org/app/mock/310649/user/findAll").then((res)=>{
+      this.$http.get("http://localhost:8989/vue/user/findAll?page=1&rows=4").then((res)=>{
         this.users=res.data.results;
       });
+    },
+    delRow(id){
+      console.log(id);
+      this.$http.get("http://localhost:8989/vue/user/delete?id="+id).then(res=>{
+        console.log(res);
+        if (res.data.success) {
+          alert(res.data.msg+",点击确定刷新当前数据！");
+          this.findAll();
+        }
+      });
     }
+
   },
   components:{},
   created() {

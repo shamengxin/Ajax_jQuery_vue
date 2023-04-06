@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: vue
+
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/vue?characterEncoding=UTF-8
+      username: root
+      password: heyufeng
+server:
+  port: 8989
+  servlet:
+    context-path: /vue
+
+
+logging:
+  level:
+    root: info
+mybatis:
+  mapper-locations: classpath:com/shamengxin/vue_cli/mapper/*.xml
+  type-aliases-package: com.shamengxin.vue_cli.entity

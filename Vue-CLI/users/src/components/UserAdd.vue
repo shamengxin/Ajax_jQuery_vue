@@ -22,7 +22,7 @@ export default {
     saveUserInfo() {
       // console.log(this.user);
       //发送axios请求
-      this.$http.post("http://rap2api.taobao.org/app/mock/310649/user/add", this.user).then(res => {
+      this.$http.post("http://localhost:8989/vue/user/add", this.user).then(res => {
         console.log(res);
         if (res.data.success) {
           this.$router.push("/user")
